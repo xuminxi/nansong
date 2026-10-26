@@ -1,0 +1,11 @@
+<!--pages/admin/login/login.wxml — 商家登录-->
+<view class="page-pad login">
+  <view class="lock-zi">管</view>
+  <view class="login-title">商家管理</view>
+  <view class="login-sub">仅限店主使用 · 请输入管理密码</view>
+  <view class="form-item">
+    <input class="form-input" password placeholder="管理密码（默认 admin888）" value="{{pwd}}" bindinput="onPwd" />
+  </view>
+  <button class="btn btn-primary login-btn" bindtap="login">登 录</button>
+  <view class="login-back" bindtap="backHome">返回用户端 ›</view>
+</view>

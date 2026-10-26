@@ -1,0 +1,32 @@
+/* components/admin-bar.wxss */
+.abar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background: #FFFFFF;
+  border-top: 1rpx solid var(--line, #EDE7DA);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 20;
+}
+.abar-item {
+  flex: 1;
+  text-align: center;
+  padding: 14rpx 0 12rpx;
+}
+.abar-zi {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 0 auto;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #A8A394;
+  background: #F5F2EA;
+}
+.abar-text { font-size: 21rpx; color: #A8A394; margin-top: 4rpx; }
+.abar-item.on .abar-zi { background: var(--green, #486552); color: #fff; }
+.abar-item.on .abar-text { color: var(--green, #486552); font-weight: 600; }

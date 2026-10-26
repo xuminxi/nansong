@@ -1,0 +1,72 @@
+<!--pages/admin/technicians/technicians.wxml — 商家：技师管理-->
+<view class="page-pad">
+
+  <view class="head-row">
+    <view class="head-tip">共 {{list.length}} 位技师</view>
+    <view class="btn-mini green" bindtap="showAdd">＋ 新增技师</view>
+  </view>
+
+  <view class="card t" wx:for="{{list}}" wx:key="id">
+    <image wx:if="{{item.avatar}}" class="t-zi t-avatar-img" src="{{item.avatar}}" mode="aspectFill" />
+    <view wx:else class="zi-avatar t-zi {{item.status === 'off' ? 't-off' : ''}}">{{item.zi}}</view>
+    <view class="t-body">
+      <view class="t-row">
+        <text class="t-name">{{item.name}}</text>
+        <text class="badge {{item.status === 'on' ? 'badge-done' : 'badge-canceled'}}">{{item.status === 'on' ? '接单中' : '已下架'}}</text>
+      </view>
+      <view class="t-title">{{item.title}}</view>
+      <view class="t-tags" wx:if="{{item.tagsText}}">擅长：{{item.tagsText}}</view>
+    </view>
+    <view class="t-ops">
+      <view class="btn-mini ghost" data-id="{{item.id}}" catchtap="uploadAvatar">头像</view>
+      <view class="btn-mini ghost" data-id="{{item.id}}" catchtap="showEdit">编辑</view>
+      <view class="btn-mini ghost" data-id="{{item.id}}" catchtap="toggleStatus">{{item.status === 'on' ? '下架' : '上架'}}</view>
+      <view class="btn-mini red" data-id="{{item.id}}" catchtap="remove">删除</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    <text class="zi">师</text>
+    还没有技师，点击右上角"新增技师"
+  </view>
+
+  <view class="abk-pad"></view>
+</view>
+
+<!-- 新增 / 编辑表单（半屏弹层） -->
+<view class="mask" wx:if="{{formVisible}}" bindtap="hideForm">
+  <view class="sheet" catchtap="noop">
+    <view class="sheet-title">{{form.id ? '编辑技师' : '新增技师'}}</view>
+    <view class="form-item">
+      <text class="form-label">姓名 *</text>
+      <input class="form-input" placeholder="如：陈师傅" value="{{form.name}}" data-field="name" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">性别</text>
+      <picker range="{{genders}}" value="{{genderIndex}}" bindchange="onGender">
+        <view class="picker-row">
+          <text>{{genders[genderIndex]}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">头衔</text>
+      <input class="form-input" placeholder="如：资深推拿师 · 从业 10 年" value="{{form.title}}" data-field="title" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">简介</text>
+      <textarea class="form-textarea" maxlength="120" placeholder="手法特点、适合人群等" value="{{form.desc}}" data-field="desc" bindinput="onFormInput"></textarea>
+    </view>
+    <view class="form-item">
+      <text class="form-label">擅长项目（空格分隔，最多 4 个）</text>
+      <input class="form-input" placeholder="如：经络推拿 肩颈调理" value="{{form.tags}}" data-field="tags" bindinput="onFormInput" />
+    </view>
+    <view class="sheet-ops">
+      <view class="btn-mini ghost sheet-cancel" bindtap="hideForm">取消</view>
+      <button class="btn btn-primary sheet-save" bindtap="save">保 存</button>
+    </view>
+  </view>
+</view>
+
+<admin-bar current="technicians" />

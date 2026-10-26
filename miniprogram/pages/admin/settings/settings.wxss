@@ -1,0 +1,45 @@
+/* pages/admin/settings/settings.wxss */
+.logout-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--danger);
+}
+.logout-text { font-size: 28rpx; }
+.logout-arrow { color: var(--ink-3); }
+
+.abk-pad { height: 160rpx; }
+
+/* 坐标 */
+.coord-row { display: flex; gap: 16rpx; }
+.coord-input { flex: 1; }
+.pick-btn { margin-top: 4rpx; text-align: center; }
+
+/* 轮播管理 */
+.bn-card { padding: 24rpx; }
+.bn-head { display: flex; align-items: center; }
+.bn-preview {
+  width: 200rpx;
+  height: 112rpx;
+  border-radius: 12rpx;
+  padding: 14rpx 16rpx;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bn-p-tag { font-size: 18rpx; opacity: 0.75; letter-spacing: 2rpx; color: #fff; }
+.bn-p-title { font-size: 26rpx; font-weight: 600; color: #fff; margin-top: 6rpx; letter-spacing: 2rpx; }
+.bn-info { flex: 1; margin-left: 20rpx; min-width: 0; }
+.bn-title { font-size: 28rpx; color: var(--ink-1); font-weight: 500; }
+.bn-sub { font-size: 22rpx; color: var(--ink-3); margin-top: 6rpx; }
+.bn-ops { margin-top: 10rpx; display: flex; gap: 24rpx; }
+.bn-op { font-size: 24rpx; color: var(--green); }
+.bn-del { color: var(--danger); }
+
+.bn-form {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid var(--line);
+}

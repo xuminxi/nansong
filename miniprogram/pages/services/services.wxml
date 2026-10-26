@@ -1,0 +1,29 @@
+<!--pages/services/services.wxml — 服务项目-->
+<view class="page-pad">
+  <!-- 分类筛选 -->
+  <scroll-view scroll-x class="cat-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="chip {{current === item ? 'on' : ''}}" wx:for="{{categories}}" wx:key="*this" data-c="{{item}}" bindtap="onTab">{{item}}</view>
+  </scroll-view>
+
+  <!-- 项目列表 -->
+  <view class="card svc" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="goBooking">
+    <view class="zi-avatar svc-zi" style="background:{{item.color}}">{{item.zi}}</view>
+    <view class="svc-body">
+      <view class="svc-top">
+        <text class="svc-name">{{item.name}}</text>
+        <text class="svc-cat">{{item.category}}</text>
+      </view>
+      <view class="svc-desc">{{item.desc}}</view>
+      <view class="svc-bottom">
+        <text class="price"><text class="unit">¥</text><text class="num">{{item.price}}</text></text>
+        <text class="svc-dur">约 {{item.duration}} 分钟</text>
+        <text class="svc-go">去预约 ›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    <text class="zi">空</text>
+    该分类暂无上架项目
+  </view>
+</view>

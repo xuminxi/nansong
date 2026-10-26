@@ -1,0 +1,10 @@
+node_modules
+data
+data.json
+*.tmp
+*.log
+.git
+.gitignore
+miniprogram
+README.md
+部署说明.md

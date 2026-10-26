@@ -1,0 +1,39 @@
+<!--pages/technicians/technicians.wxml — 技师列表-->
+<view class="page-pad">
+
+  <view class="card tech" wx:for="{{techs}}" wx:key="id">
+    <view class="tech-main">
+      <!-- 有头像图片则显示图片，否则显示汉字色块 -->
+      <image wx:if="{{item.avatar}}" class="tech-avatar-img" src="{{item.avatar}}" mode="aspectFill" />
+      <view wx:else class="zi-avatar tech-avatar" style="background:{{item.color}}">{{item.zi}}</view>
+      <view class="tech-body">
+        <view class="tech-row">
+          <text class="tech-name">{{item.name}}</text>
+          <text class="tech-title">{{item.title}}</text>
+        </view>
+        <view class="tech-desc">{{item.desc}}</view>
+        <view class="tech-tags" wx:if="{{item.tagsText}}">擅长：{{item.tagsText}}</view>
+        <view class="tech-actions">
+          <view class="btn-mini ghost" data-id="{{item.id}}" catchtap="toggleTimes">
+            {{expandedId === item.id ? '收起空闲时段' : '今日空闲时段'}}
+          </view>
+          <view class="btn-mini green" data-id="{{item.id}}" catchtap="goBooking">约 TA</view>
+        </view>
+      </view>
+    </view>
+    <!-- 今日空闲区间（排班独立，仅显示该技师自己的空闲） -->
+    <view class="times-panel" wx:if="{{expandedId === item.id}}">
+      <view class="times-title">今日空闲（{{item.name}} 独立排班）</view>
+      <view class="times-empty" wx:if="{{freeLoading}}">正在获取空闲时段…</view>
+      <view class="times-wrap" wx:elif="{{freeList.length > 0}}">
+        <text class="time-pill" wx:for="{{freeList}}" wx:for-item="r" wx:key="start">{{r.start}} - {{r.end}}</text>
+      </view>
+      <view class="times-empty" wx:else>今日已约满，可点「约 TA」查看未来 7 天</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{techs.length === 0}}">
+    <text class="zi">休</text>
+    技师暂未上架，请联系商家
+  </view>
+</view>

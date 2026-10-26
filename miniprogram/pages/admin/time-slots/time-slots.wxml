@@ -1,0 +1,51 @@
+<!--pages/admin/time-slots/time-slots.wxml — 商家：营业时间与可约开始时间设置-->
+<view class="page-pad">
+
+  <view class="card">
+    <view class="form-item">
+      <text class="form-label">开门时间</text>
+      <picker mode="time" value="{{cfg.open}}" bindchange="onOpen">
+        <view class="picker-row">
+          <text>{{cfg.open}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">打烊时间</text>
+      <picker mode="time" value="{{cfg.close}}" bindchange="onClose">
+        <view class="picker-row">
+          <text>{{cfg.close}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">可约开始时间粒度</text>
+      <picker range="{{stepLabels}}" value="{{stepIndex}}" bindchange="onStep">
+        <view class="picker-row">
+          <text>{{stepLabels[stepIndex]}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-tip">预约按项目时长连续占用时间：例如 90 分钟项目从 15:00 开始，则占用 15:00–16:30，该区间内不再接受其他预约，且结束时间不得晚于打烊时间。</view>
+    <button class="btn btn-primary save-btn" bindtap="save">保 存 设置</button>
+  </view>
+
+  <!-- 预览 -->
+  <view class="section-title">
+    <view class="dot"></view>
+    <text class="zh">可约开始时间预览</text>
+  </view>
+  <view class="card">
+    <view class="pv-tip">按当前设置，每天共 {{previewCount}} 个可选开始时间：</view>
+    <view class="pv-wrap">
+      <text class="pv-pill" wx:for="{{preview}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="pv-note">两位技师排班相互独立，同一时间各自可接待一位顾客。已过时间、已被占用、或加上项目时长会超过打烊时间的开始时间，用户端会自动置灰。</view>
+  </view>
+
+  <view class="abk-pad"></view>
+</view>
+<admin-bar current="time-slots" />

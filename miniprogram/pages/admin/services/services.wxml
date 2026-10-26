@@ -1,0 +1,76 @@
+<!--pages/admin/services/services.wxml — 商家：项目管理-->
+<view class="page-pad">
+
+  <view class="head-row">
+    <view class="head-tip">上 / 下架后的项目将立即在用户端显示 / 隐藏</view>
+    <view class="btn-mini green" bindtap="showAdd">＋ 新增项目</view>
+  </view>
+
+  <block wx:for="{{groups}}" wx:for-item="group" wx:key="category">
+    <view class="section-title" wx:if="{{group.items.length > 0}}">
+      <view class="dot"></view>
+      <text class="zh">{{group.category}}</text>
+    </view>
+    <view class="card sv" wx:for="{{group.items}}" wx:key="id">
+      <view class="sv-main">
+        <view class="sv-row">
+          <text class="sv-name">{{item.name}}</text>
+          <text class="badge {{item.on ? 'badge-done' : 'badge-canceled'}}">{{item.on ? '已上架' : '已下架'}}</text>
+        </view>
+        <view class="sv-desc" wx:if="{{item.desc}}">{{item.desc}}</view>
+        <view class="sv-meta">¥{{item.price}} · {{item.duration}} 分钟</view>
+      </view>
+      <view class="sv-ops">
+        <view class="btn-mini ghost" data-id="{{item.id}}" catchtap="showEdit">编辑</view>
+        <view class="btn-mini {{item.on ? 'red' : 'green'}}" data-id="{{item.id}}" catchtap="toggle">{{item.on ? '下架' : '上架'}}</view>
+      </view>
+    </view>
+  </block>
+
+  <view class="empty" wx:if="{{groups.length === 0}}">
+    <text class="zi">项</text>
+    还没有服务项目
+  </view>
+
+  <view class="abk-pad"></view>
+</view>
+
+<!-- 新增 / 编辑弹层 -->
+<view class="mask" wx:if="{{formVisible}}" bindtap="hideForm">
+  <view class="sheet" catchtap="noop">
+    <view class="sheet-title">{{form.id ? '编辑项目' : '新增项目'}}</view>
+    <view class="form-item">
+      <text class="form-label">分类</text>
+      <picker range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategory">
+        <view class="picker-row">
+          <text>{{form.category}}</text>
+          <text class="arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">项目名称 *</text>
+      <input class="form-input" placeholder="如：中式经络推拿" value="{{form.name}}" data-field="name" bindinput="onFormInput" />
+    </view>
+    <view class="form-item form-cols">
+      <view class="col">
+        <text class="form-label">价格（元）*</text>
+        <input class="form-input" type="digit" placeholder="168" value="{{form.price}}" data-field="price" bindinput="onFormInput" />
+      </view>
+      <view class="col">
+        <text class="form-label">时长（分钟）*</text>
+        <input class="form-input" type="number" placeholder="60" value="{{form.duration}}" data-field="duration" bindinput="onFormInput" />
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">简介</text>
+      <textarea class="form-textarea" maxlength="80" placeholder="一句介绍，展示在项目卡片上" value="{{form.desc}}" data-field="desc" bindinput="onFormInput"></textarea>
+    </view>
+    <view class="sheet-ops">
+      <view class="btn-mini ghost sheet-cancel" bindtap="hideForm">取消</view>
+      <button class="btn btn-primary sheet-save" bindtap="save">保 存</button>
+    </view>
+  </view>
+</view>
+
+<admin-bar current="services" />

@@ -1,0 +1,81 @@
+/* pages/profile/profile.wxss */
+.me-card { display: flex; align-items: center; }
+.me-zi {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.me-info { flex: 1; margin-left: 24rpx; min-width: 0; }
+.me-name { font-size: 32rpx; font-weight: 600; letter-spacing: 2rpx; }
+.me-sub { font-size: 23rpx; color: var(--ink-3); margin-top: 4rpx; }
+.me-admin { font-size: 24rpx; color: var(--green); flex-shrink: 0; }
+.me-phone-input {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: var(--green-deep);
+  border-bottom: 1rpx dashed var(--line);
+  padding-bottom: 6rpx;
+  width: 320rpx;
+}
+.login-btn { margin: -6rpx 0 26rpx; }
+
+/* 统计 */
+.stats {
+  display: flex;
+  align-items: center;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: var(--radius);
+  padding: 28rpx 0;
+  margin-bottom: 26rpx;
+}
+.stat { flex: 1; text-align: center; }
+.stat-num { font-size: 40rpx; font-weight: 600; color: var(--green-deep); }
+.stat-label { font-size: 23rpx; color: var(--ink-3); margin-top: 4rpx; }
+.stat-div { width: 1rpx; height: 52rpx; background: var(--line); }
+
+.tab-scroll { white-space: nowrap; padding: 4rpx 0 10rpx; }
+
+/* 预约卡片 */
+.bk-top { display: flex; align-items: center; justify-content: space-between; }
+.bk-name { font-size: 30rpx; font-weight: 600; }
+.bk-rows { margin-top: 16rpx; border-top: 1rpx dashed var(--line); padding-top: 6rpx; }
+.bk-row { display: flex; padding: 8rpx 0; font-size: 25rpx; }
+.bk-k { width: 90rpx; color: var(--ink-3); flex-shrink: 0; letter-spacing: 4rpx; }
+.bk-v { color: var(--ink-2); flex: 1; }
+.bk-v.code { color: #96702F; font-weight: 600; letter-spacing: 2rpx; }
+.bk-code-tip {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #96702F;
+  background: #FBF4E6;
+  border-radius: 8rpx;
+  padding: 8rpx 16rpx;
+}
+.bk-foot {
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bk-time { font-size: 22rpx; color: var(--ink-3); }
+
+.empty-btn {
+  display: inline-block;
+  margin-top: 24rpx;
+  color: var(--green);
+  border: 1rpx solid var(--green);
+  border-radius: 999rpx;
+  padding: 10rpx 34rpx;
+  font-size: 25rpx;
+}
+
+.phone-btn { margin-top: 14rpx; font-size: 24rpx; padding: 10rpx 24rpx; }
+.me-phone-tip { margin-top: 12rpx; font-size: 22rpx; color: var(--green); }

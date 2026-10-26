@@ -1,0 +1,80 @@
+<!--pages/profile/profile.wxml — 我的-->
+<view class="page-pad">
+
+  <!-- 个人信息卡（微信登录 + 手机号） -->
+  <view class="card me-card">
+    <view class="me-zi">松</view>
+    <view class="me-info">
+      <!-- 已登录：显示微信昵称 + 手机号（可修改，预约时自动带入） -->
+      <block wx:if="{{logged}}">
+        <view class="me-name">{{nickname}}</view>
+        <view class="me-sub">预约手机号（自动带入）</view>
+        <input class="me-phone-input" type="number" maxlength="11"
+               placeholder="填写手机号后自动保存" value="{{phone}}" bindinput="onPhoneInput" />
+        <!-- 微信手机号：需已认证的非个人主体小程序 + 已接入服务端 -->
+        <button class="btn btn-ghost phone-btn" wx:if="{{!phone}}"
+                open-type="getPhoneNumber" bindgetphonenumber="onGetPhone">使用微信手机号</button>
+        <view class="me-phone-tip" wx:else>已保存，预约时自动带入</view>
+      </block>
+      <!-- 未登录：微信一键登录 -->
+      <block wx:else>
+        <view class="me-name">未登录</view>
+        <view class="me-sub">登录后预约更便捷</view>
+      </block>
+    </view>
+    <view class="me-admin" bindtap="goAdmin">商家管理 ›</view>
+  </view>
+  <button class="btn btn-primary login-btn" wx:if="{{!logged}}" bindtap="wxLogin">微信一键登录</button>
+
+  <!-- 统计 -->
+  <view class="stats">
+    <view class="stat">
+      <view class="stat-num">{{stats.pending}}</view>
+      <view class="stat-label">待确认</view>
+    </view>
+    <view class="stat-div"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.done}}</view>
+      <view class="stat-label">已完成</view>
+    </view>
+    <view class="stat-div"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.total}}</view>
+      <view class="stat-label">全部预约</view>
+    </view>
+  </view>
+
+  <!-- 状态筛选 -->
+  <scroll-view scroll-x class="tab-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="chip {{current === item ? 'on' : ''}}" wx:for="{{tabs}}" wx:key="*this" data-t="{{item}}" bindtap="onTab">{{item}}</view>
+  </scroll-view>
+
+  <!-- 预约列表 -->
+  <view class="card bk-card" wx:for="{{list}}" wx:key="id">
+    <view class="bk-top">
+      <text class="bk-name">{{item.serviceName}}</text>
+      <text class="badge {{item.statusCls}}">{{item.statusText}}</text>
+    </view>
+    <view class="bk-rows">
+      <view class="bk-row"><text class="bk-k">时间</text><text class="bk-v">{{item.dateCN}} {{item.time}} - {{item.endTime}}</text></view>
+      <view class="bk-row"><text class="bk-k">技师</text><text class="bk-v">{{item.techName}}</text></view>
+      <view class="bk-row"><text class="bk-k">金额</text><text class="bk-v price">¥{{item.price}}</text></view>
+      <view class="bk-row" wx:if="{{item.remark}}"><text class="bk-k">备注</text><text class="bk-v">{{item.remark}}</text></view>
+      <view class="bk-row" wx:if="{{item.code}}">
+        <text class="bk-k">核销码</text>
+        <text class="bk-v code">{{item.code}}</text>
+      </view>
+    </view>
+    <view class="bk-code-tip" wx:if="{{item.code && item.showCode}}">到店请向技师报此核销码</view>
+    <view class="bk-foot">
+      <text class="bk-time">下单于 {{item.createdAtText}}</text>
+      <view class="btn-mini red" wx:if="{{item.canCancel}}" data-id="{{item.id}}" catchtap="cancel">取消预约</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    <text class="zi">静</text>
+    暂无{{current === '全部' ? '' : current}}的预约
+    <view class="empty-btn" bindtap="goBooking">去预约 ›</view>
+  </view>
+</view>

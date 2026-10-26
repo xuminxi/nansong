@@ -1,0 +1,82 @@
+<!--pages/index/index.wxml — 首页-->
+<view class="page-pad">
+
+  <!-- 店名头部 -->
+  <view class="head">
+    <view class="head-name">{{storeInfo.name}}</view>
+    <view class="head-slogan">{{storeInfo.slogan}}</view>
+  </view>
+
+  <!-- 轮播图 -->
+  <swiper class="banner-swiper" indicator-dots indicator-color="rgba(59,56,48,0.15)" indicator-active-color="#486552" autoplay circular interval="4500">
+    <swiper-item wx:for="{{banners}}" wx:key="title">
+      <view class="banner banner-{{item.theme}}">
+        <view class="banner-tag">{{item.tag}}</view>
+        <view class="banner-title">{{item.title}}</view>
+        <view class="banner-sub">{{item.sub}}</view>
+        <view class="banner-zi">松</view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 店铺简介 -->
+  <view class="card intro-card">
+    <view class="intro-title">门店介绍</view>
+    <view class="intro-desc">{{storeInfo.desc}}</view>
+    <view class="intro-rows">
+      <view class="intro-row">
+        <text class="intro-k">营业</text>
+        <text class="intro-v">{{storeInfo.hours}}</text>
+      </view>
+      <!-- 电话：每个号码均可一键拨打 -->
+      <view class="intro-row" wx:for="{{phones}}" wx:key="*this" data-idx="{{index}}" bindtap="callShop">
+        <text class="intro-k">电话</text>
+        <text class="intro-v intro-link">{{item}}（点按拨打）</text>
+      </view>
+      <!-- 地址：点击跳转地图导航 -->
+      <view class="intro-row" bindtap="openMap">
+        <text class="intro-k">地址</text>
+        <text class="intro-v">{{storeInfo.address}}</text>
+        <text class="intro-nav">导航 ›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 技师展示 -->
+  <view class="section-title">
+    <view class="dot"></view>
+    <text class="zh">技师团队</text>
+    <text class="en">TEAM</text>
+    <text class="more" bindtap="goTechs">全部 ›</text>
+  </view>
+  <scroll-view scroll-x class="tech-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="tech-scroll-item" wx:for="{{techs}}" wx:key="id" bindtap="goTechs">
+      <image wx:if="{{item.avatar}}" class="tech-scroll-avatar" src="{{item.avatar}}" mode="aspectFill" />
+      <view wx:else class="zi-avatar tech-avatar" style="background:#5F7A66">{{item.zi}}</view>
+      <view class="tech-name">{{item.name}}</view>
+      <view class="tech-title">{{item.title}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 项目套餐 -->
+  <view class="section-title">
+    <view class="dot"></view>
+    <text class="zh">精选项目</text>
+    <text class="en">SERVICES</text>
+    <text class="more" bindtap="goServices">全部 ›</text>
+  </view>
+  <view class="card svc-card" wx:for="{{services}}" wx:key="id" data-id="{{item.id}}" bindtap="goBooking">
+    <view class="zi-avatar svc-zi" style="background:{{item.color}}">{{item.zi}}</view>
+    <view class="svc-info">
+      <view class="svc-name">{{item.name}}</view>
+      <view class="svc-desc">{{item.desc}}</view>
+      <view class="svc-meta">
+        <text class="price"><text class="unit">¥</text><text class="num">{{item.price}}</text></text>
+        <text class="svc-dur">{{item.duration}} 分钟</text>
+      </view>
+    </view>
+    <view class="svc-go">预约</view>
+  </view>
+
+  <view class="foot-note">—— 南松推拿 · 松身松心 ——</view>
+</view>

@@ -1,0 +1,105 @@
+<!--pages/admin/settings/settings.wxml — 商家：店铺设置-->
+<view class="page-pad">
+
+  <view class="card">
+    <view class="form-item">
+      <text class="form-label">店铺名称 *</text>
+      <input class="form-input" value="{{form.name}}" data-field="name" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">一句话标语</text>
+      <input class="form-input" value="{{form.slogan}}" data-field="slogan" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">店铺简介（展示在首页）</text>
+      <textarea class="form-textarea" maxlength="150" value="{{form.desc}}" data-field="desc" bindinput="onFormInput"></textarea>
+    </view>
+    <view class="form-item">
+      <text class="form-label">营业时间（文字）</text>
+      <input class="form-input" placeholder="每日 9:30 - 21:30" value="{{form.hours}}" data-field="hours" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">电话 1（用户可点按拨打）</text>
+      <input class="form-input" type="number" maxlength="11" value="{{phone1}}" data-field="phone1" bindinput="onPhone" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">电话 2（可留空）</text>
+      <input class="form-input" type="number" maxlength="11" value="{{phone2}}" data-field="phone2" bindinput="onPhone" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">店铺地址</text>
+      <input class="form-input" value="{{form.address}}" data-field="address" bindinput="onFormInput" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">导航坐标（纬度 / 经度）</text>
+      <view class="coord-row">
+        <input class="form-input coord-input" placeholder="纬度" value="{{lat}}" data-field="lat" bindinput="onCoord" />
+        <input class="form-input coord-input" placeholder="经度" value="{{lng}}" data-field="lng" bindinput="onCoord" />
+      </view>
+    </view>
+    <view class="form-item">
+      <view class="btn btn-ghost pick-btn" bindtap="pickLocation">在地图上选点</view>
+      <view class="form-tip">用户在首页点击地址即可跳转微信内置地图导航，请务必填写正确坐标。</view>
+    </view>
+    <button class="btn btn-primary" bindtap="save">保 存 门 店 信 息</button>
+  </view>
+
+  <!-- 轮播管理 -->
+  <view class="section-title">
+    <view class="dot"></view>
+    <text class="zh">首页轮播</text>
+    <text class="more" bindtap="addBanner">+ 新增</text>
+  </view>
+  <view class="card bn-card" wx:for="{{banners}}" wx:key="title">
+    <view class="bn-head">
+      <view class="bn-preview banner-{{item.theme}}">
+        <view class="bn-p-tag">{{item.tag}}</view>
+        <view class="bn-p-title">{{item.title}}</view>
+      </view>
+      <view class="bn-info">
+        <view class="bn-title">{{item.title}}</view>
+        <view class="bn-sub">{{item.sub}}</view>
+        <view class="bn-ops">
+          <text class="bn-op" data-idx="{{index}}" catchtap="editBanner">编辑</text>
+          <text class="bn-op bn-del" data-idx="{{index}}" catchtap="removeBanner">删除</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="bn-form" wx:if="{{editing === index}}">
+      <view class="form-item">
+        <text class="form-label">小标签</text>
+        <input class="form-input" value="{{item.tag}}" data-field="tag" bindinput="onBannerInput" />
+      </view>
+      <view class="form-item">
+        <text class="form-label">主标题</text>
+        <input class="form-input" value="{{item.title}}" data-field="title" bindinput="onBannerInput" />
+      </view>
+      <view class="form-item">
+        <text class="form-label">副标题</text>
+        <input class="form-input" value="{{item.sub}}" data-field="sub" bindinput="onBannerInput" />
+      </view>
+      <view class="form-item">
+        <text class="form-label">配色</text>
+        <picker range="{{themeLabels}}" value="{{editThemeIndex}}" bindchange="onBannerTheme">
+          <view class="picker-row">
+            <text>{{themeLabels[editThemeIndex]}}</text>
+            <text class="arrow">›</text>
+          </view>
+        </picker>
+      </view>
+      <view class="btn btn-ghost" catchtap="closeBannerEdit">收 起</view>
+    </view>
+  </view>
+  <view class="card" wx:if="{{banners.length > 0}}">
+    <button class="btn btn-primary" bindtap="saveBanners">保 存 轮 播</button>
+  </view>
+
+  <view class="card logout-card" bindtap="logout">
+    <text class="logout-text">退出商家登录</text>
+    <text class="logout-arrow">›</text>
+  </view>
+
+  <view class="abk-pad"></view>
+</view>
+<admin-bar current="settings" />

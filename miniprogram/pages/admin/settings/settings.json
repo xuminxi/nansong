@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "店铺设置",
+  "usingComponents": {
+    "admin-bar": "/components/admin-bar/admin-bar"
+  }
+}

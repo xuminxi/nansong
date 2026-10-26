@@ -1,0 +1,194 @@
+/* app.wxss — 全局样式：简约新中式 · 柔和浅色系 */
+page {
+  --bg: #FAF6EF;            /* 米宣纸底 */
+  --card: #FFFFFF;          /* 卡片 */
+  --ink: #3B3830;           /* 墨色主文字 */
+  --ink-2: #85816F;         /* 次级文字 */
+  --ink-3: #B9B4A2;         /* 弱文字 */
+  --green: #486552;         /* 主色·松绿 */
+  --green-deep: #2F4A3A;    /* 深松绿 */
+  --green-soft: #E7EEE7;    /* 浅绿衬底 */
+  --gold: #B7935C;          /* 浅金点缀 */
+  --gold-soft: #F3E9D6;     /* 浅金衬底 */
+  --line: #EDE7DA;          /* 细分隔线 */
+  --danger: #B4553E;        /* 朱砂 · 取消/警示 */
+  --radius: 20rpx;
+
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* —— 通用布局 —— */
+.page-pad { padding: 24rpx 32rpx 48rpx; }
+.section-title {
+  display: flex;
+  align-items: baseline;
+  margin: 40rpx 4rpx 24rpx;
+}
+.section-title .zh {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 2rpx;
+}
+.section-title .dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: var(--gold);
+  margin: 0 14rpx 2rpx 4rpx;
+  align-self: center;
+}
+.section-title .en {
+  font-size: 22rpx;
+  color: var(--ink-3);
+  letter-spacing: 4rpx;
+}
+
+/* —— 卡片 —— */
+.card {
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: var(--radius);
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+/* —— 汉字头像（技师/项目占位图） —— */
+.zi-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 40rpx;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+
+/* —— 徽章 —— */
+.badge {
+  display: inline-block;
+  padding: 4rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+}
+.badge-pending { background: var(--gold-soft); color: #8F6F3B; }
+.badge-arrived { background: #E3EBEF; color: #3F6478; }
+.badge-done    { background: var(--green-soft); color: var(--green-deep); }
+.badge-canceled{ background: #F0EEE8; color: var(--ink-2); }
+
+/* —— 按钮 —— */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  padding: 20rpx 44rpx;
+  line-height: 1.4;
+  border: none;
+}
+.btn::after { border: none; }
+.btn-primary {
+  background: var(--green);
+  color: #FFFFFF;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+.btn-primary.disabled { opacity: 0.45; }
+.btn-ghost {
+  background: transparent;
+  color: var(--green);
+  border: 1rpx solid var(--green);
+}
+.btn-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 999rpx;
+  line-height: 1.6;
+}
+.btn-mini.ghost { border: 1rpx solid var(--line); color: var(--ink-2); background: #FFF; }
+.btn-mini.green { border: 1rpx solid var(--green); color: var(--green); background: #FFF; }
+.btn-mini.red   { border: 1rpx solid #E4C4BA; color: var(--danger); background: #FFF; }
+.btn-mini.warn  { border: 1rpx solid #E0CBA4; color: #96702F; background: #FFFDF7; }
+
+/* —— 表单 —— */
+.form-item { margin-bottom: 26rpx; }
+.form-label {
+  font-size: 26rpx;
+  color: var(--ink-2);
+  margin-bottom: 12rpx;
+  display: block;
+}
+.form-input {
+  background: #FCFAF4;
+  border: 1rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 18rpx 22rpx;
+  font-size: 28rpx;
+  color: var(--ink);
+}
+.form-textarea {
+  background: #FCFAF4;
+  border: 1rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 18rpx 22rpx;
+  font-size: 28rpx;
+  width: auto;
+  min-height: 140rpx;
+  box-sizing: border-box;
+}
+.picker-row {
+  background: #FCFAF4;
+  border: 1rpx solid var(--line);
+  border-radius: 14rpx;
+  padding: 18rpx 22rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.picker-row .arrow { color: var(--ink-3); font-size: 24rpx; }
+
+/* —— 空状态 —— */
+.empty {
+  text-align: center;
+  color: var(--ink-3);
+  padding: 100rpx 0 60rpx;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
+}
+.empty .zi {
+  font-size: 60rpx;
+  display: block;
+  margin-bottom: 16rpx;
+  color: #DAD4C4;
+}
+
+/* —— 标签 / 筛选 —— */
+.chip {
+  display: inline-block;
+  padding: 10rpx 30rpx;
+  border-radius: 999rpx;
+  font-size: 26rpx;
+  color: var(--ink-2);
+  background: #FFFFFF;
+  border: 1rpx solid var(--line);
+  margin-right: 18rpx;
+}
+.chip.on {
+  background: var(--green);
+  border-color: var(--green);
+  color: #FFFFFF;
+}
+
+/* —— 价格 —— */
+.price { color: var(--gold); font-weight: 600; }
+.price .num { font-size: 34rpx; }
+.price .unit { font-size: 22rpx; }

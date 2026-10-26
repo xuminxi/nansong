@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "预约管理",
+  "usingComponents": {
+    "admin-bar": "/components/admin-bar/admin-bar"
+  }
+}

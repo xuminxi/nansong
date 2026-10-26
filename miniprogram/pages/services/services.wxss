@@ -1,0 +1,26 @@
+/* pages/services/services.wxss */
+.cat-scroll { white-space: nowrap; padding: 10rpx 0 6rpx; }
+
+.svc { display: flex; }
+.svc-zi {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 18rpx;
+  flex-shrink: 0;
+  font-size: 38rpx;
+}
+.svc-body { flex: 1; margin-left: 26rpx; min-width: 0; }
+.svc-top { display: flex; align-items: center; }
+.svc-name { font-size: 31rpx; font-weight: 600; flex-shrink: 0; }
+.svc-cat {
+  margin-left: 16rpx;
+  font-size: 20rpx;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border-radius: 8rpx;
+  padding: 2rpx 12rpx;
+}
+.svc-desc { margin-top: 8rpx; font-size: 25rpx; color: var(--ink-2); }
+.svc-bottom { margin-top: 14rpx; display: flex; align-items: baseline; }
+.svc-dur { margin-left: 18rpx; font-size: 22rpx; color: var(--ink-3); }
+.svc-go { margin-left: auto; font-size: 24rpx; color: var(--green); align-self: center; }

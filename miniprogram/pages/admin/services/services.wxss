@@ -1,0 +1,58 @@
+/* pages/admin/services/services.wxss */
+.head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  padding: 0 4rpx;
+}
+.head-tip { font-size: 23rpx; color: var(--ink-3); max-width: 380rpx; }
+
+.sv { display: flex; align-items: center; }
+.sv-main { flex: 1; min-width: 0; }
+.sv-row { display: flex; align-items: center; justify-content: space-between; }
+.sv-name { font-size: 29rpx; font-weight: 600; }
+.sv-desc {
+  margin-top: 6rpx;
+  font-size: 23rpx;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sv-meta { margin-top: 8rpx; font-size: 24rpx; color: var(--gold); }
+.sv-ops { display: flex; flex-direction: column; gap: 12rpx; margin-left: 14rpx; }
+.sv-ops .btn-mini { width: 110rpx; }
+
+.abk-pad { height: 160rpx; }
+
+/* 弹层（与技师管理一致） */
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(59, 56, 48, 0.45);
+  z-index: 30;
+  display: flex;
+  align-items: flex-end;
+}
+.sheet {
+  width: 100%;
+  background: var(--bg);
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 36rpx 36rpx calc(36rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  max-height: 82vh;
+  overflow-y: auto;
+}
+.sheet-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  margin-bottom: 30rpx;
+}
+.form-cols { display: flex; gap: 22rpx; }
+.form-cols .col { flex: 1; }
+.sheet-ops { display: flex; align-items: center; margin-top: 36rpx; }
+.sheet-cancel { width: 180rpx; padding: 16rpx 0; justify-content: center; }
+.sheet-save { flex: 1; margin-left: 22rpx; }

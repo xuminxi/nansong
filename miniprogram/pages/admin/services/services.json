@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "项目管理",
+  "usingComponents": {
+    "admin-bar": "/components/admin-bar/admin-bar"
+  }
+}

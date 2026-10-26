@@ -1,0 +1,24 @@
+/* pages/admin/time-slots/time-slots.wxss */
+.save-btn { margin-top: 16rpx; }
+
+.pv-tip { font-size: 25rpx; color: var(--ink-2); }
+.pv-wrap { margin-top: 18rpx; display: flex; flex-wrap: wrap; }
+.pv-pill {
+  display: inline-block;
+  background: var(--green-soft);
+  color: var(--green-deep);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding: 8rpx 22rpx;
+  margin: 0 14rpx 14rpx 0;
+}
+.pv-note {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: var(--ink-3);
+  border-top: 1rpx dashed var(--line);
+  padding-top: 18rpx;
+  text-align: justify;
+}
+
+.abk-pad { height: 160rpx; }

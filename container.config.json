@@ -1,33 +1,26 @@
 {
   	// 本配置文件仅配合模板部署使用，为模板部署的服务生成「服务设置」的初始值。
 	// 模板部署结束后，后续服务发布与本配置文件完全无关，修改「服务设置」请到控制台操作。
-	// 复制模板代码自行开发请忽略本配置文件。
-  
+
   "containerPort": 80,
   "dockerfilePath": "Dockerfile",
   "buildDir": "",
-  "minNum": 0,
-  "maxNum": 5,
-  "cpu": 1,
-  "mem": 2,
+  // 最小副本数设为 1：避免半小时无请求缩容到 0 造成冷启动，预约业务建议常驻
+  "minNum": 1,
+  "maxNum": 2,
+  "cpu": 0.25,
+  "mem": 0.5,
   "policyType": "cpu",
   "policyThreshold": 80,
   "policyDetails": [
 	{
 		"PolicyType": "cpu",
 		"PolicyThreshold": 80
-	},
-	{
-		"PolicyType": "mem",
-		"PolicyThreshold": 80
 	}
   ],
+  // 环境变量请在控制台「服务设置 → 环境变量」填写，不要把密钥写在这里：
+  // APPID / SECRET / ADMIN_PASSWORD / DATA_DIR=/mnt/cos / STORAGE / COS_*
   "envParams": {},
   "customLogs": "stdout",
-  "initialDelaySeconds": 2,
-  "dataBaseName": "nodejs_demo",
-  "executeSQLs": [
-    "CREATE DATABASE IF NOT EXISTS nodejs_demo;",
-    "USE nodejs_demo;"
-  ]
+  "initialDelaySeconds": 2
 }

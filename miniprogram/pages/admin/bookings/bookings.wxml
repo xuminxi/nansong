@@ -1,0 +1,51 @@
+<!--pages/admin/bookings/bookings.wxml — 商家：预约管理-->
+<view class="page-pad abk">
+
+  <!-- 今日概览 -->
+  <view class="ov">
+    <view class="ov-item">
+      <view class="ov-num">{{todayCount}}</view>
+      <view class="ov-label">今日预约</view>
+    </view>
+    <view class="ov-div"></view>
+    <view class="ov-item">
+      <view class="ov-num ov-warn">{{pendingCount}}</view>
+      <view class="ov-label">待确认</view>
+    </view>
+  </view>
+
+  <!-- 状态筛选 -->
+  <scroll-view scroll-x class="tab-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="chip {{current === item ? 'on' : ''}}" wx:for="{{tabs}}" wx:key="*this" data-t="{{item}}" bindtap="onTab">{{item}}</view>
+  </scroll-view>
+
+  <!-- 预约列表 -->
+  <view class="card bk" wx:for="{{list}}" wx:key="id">
+    <view class="bk-top">
+      <text class="bk-svc">{{item.serviceName}}</text>
+      <text class="badge {{item.statusCls}}">{{item.statusText}}</text>
+    </view>
+    <view class="bk-when">{{item.dateCN}} {{item.time}} - {{item.endTime}} · {{item.techName}} · ¥{{item.price}}</view>
+    <view class="bk-cust">
+      <text class="bk-phone">{{item.phone}}</text>
+      <text class="bk-call" data-phone="{{item.phone}}" catchtap="callCustomer">拨打</text>
+      <text class="bk-code" wx:if="{{item.code}}">核销码 {{item.code}}</text>
+    </view>
+    <view class="bk-remark" wx:if="{{item.remark}}">备注：{{item.remark}}</view>
+    <view class="bk-ops">
+      <view class="btn-mini green" wx:if="{{item.canArrive}}" data-id="{{item.id}}" data-status="arrived" catchtap="setStatus">已到店</view>
+      <view class="btn-mini green" wx:if="{{item.canDone}}" data-id="{{item.id}}" data-status="done" catchtap="setStatus">已完成</view>
+      <view class="btn-mini red" wx:if="{{item.canCancel}}" data-id="{{item.id}}" data-status="canceled" catchtap="setStatus">取消</view>
+      <view class="btn-mini warn" wx:if="{{item.canNoshow}}" data-id="{{item.id}}" catchtap="markNoshow">未到店</view>
+      <text class="bk-ctime" wx:if="{{!item.canArrive && !item.canDone && !item.canCancel}}">下单于 {{item.createdAtText}}</text>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{list.length === 0}}">
+    <text class="zi">约</text>
+    暂无{{current === '全部' ? '' : current}}的预约
+  </view>
+
+  <view class="abk-pad"></view>
+</view>
+<admin-bar current="bookings" />

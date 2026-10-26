@@ -1,0 +1,7 @@
+<!--components/admin-bar.wxml — 商家后台底部导航-->
+<view class="abar">
+  <view class="abar-item {{current === item.key ? 'on' : ''}}" wx:for="{{tabs}}" wx:key="key" data-url="{{item.url}}" bindtap="onTap">
+    <view class="abar-zi">{{item.zi}}</view>
+    <view class="abar-text">{{item.text}}</view>
+  </view>
+</view>

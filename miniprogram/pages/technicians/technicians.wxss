@@ -1,0 +1,29 @@
+/* pages/technicians/technicians.wxss */
+.tech-main { display: flex; }
+.tech-avatar { width: 116rpx; height: 116rpx; border-radius: 50%; flex-shrink: 0; font-size: 44rpx; }
+.tech-avatar-img { width: 116rpx; height: 116rpx; border-radius: 50%; flex-shrink: 0; background: #F0EDE4; }
+.tech-body { flex: 1; margin-left: 26rpx; min-width: 0; }
+.tech-row { display: flex; align-items: baseline; flex-wrap: wrap; }
+.tech-name { font-size: 32rpx; font-weight: 600; letter-spacing: 2rpx; }
+.tech-title { margin-left: 16rpx; font-size: 22rpx; color: var(--ink-3); }
+.tech-desc { margin-top: 10rpx; font-size: 25rpx; color: var(--ink-2); text-align: justify; }
+.tech-tags { margin-top: 10rpx; font-size: 23rpx; color: var(--gold); }
+.tech-actions { margin-top: 18rpx; display: flex; gap: 18rpx; }
+
+.times-panel {
+  margin-top: 24rpx;
+  border-top: 1rpx dashed var(--line);
+  padding-top: 20rpx;
+}
+.times-title { font-size: 24rpx; color: var(--ink-3); letter-spacing: 2rpx; margin-bottom: 14rpx; }
+.times-wrap { display: flex; flex-wrap: wrap; }
+.time-pill {
+  display: inline-block;
+  background: var(--green-soft);
+  color: var(--green-deep);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding: 8rpx 22rpx;
+  margin: 0 14rpx 14rpx 0;
+}
+.times-empty { font-size: 24rpx; color: var(--ink-3); }

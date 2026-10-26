@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/services/services",
+    "pages/technicians/technicians",
+    "pages/profile/profile",
+    "pages/booking/booking",
+    "pages/admin/login/login",
+    "pages/admin/bookings/bookings",
+    "pages/admin/technicians/technicians",
+    "pages/admin/services/services",
+    "pages/admin/time-slots/time-slots",
+    "pages/admin/settings/settings"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FAF6EF",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "南松推拿馆 · 预约",
+    "backgroundColor": "#FAF6EF",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8A8A80",
+    "selectedColor": "#486552",
+    "backgroundColor": "#FDFBF6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab/home-n.png",
+        "selectedIconPath": "images/tab/home-a.png"
+      },
+      {
+        "pagePath": "pages/services/services",
+        "text": "项目",
+        "iconPath": "images/tab/services-n.png",
+        "selectedIconPath": "images/tab/services-a.png"
+      },
+      {
+        "pagePath": "pages/technicians/technicians",
+        "text": "技师",
+        "iconPath": "images/tab/tech-n.png",
+        "selectedIconPath": "images/tab/tech-a.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab/profile-n.png",
+        "selectedIconPath": "images/tab/profile-a.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

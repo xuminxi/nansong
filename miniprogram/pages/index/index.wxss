@@ -1,0 +1,151 @@
+/* pages/index/index.wxss — 首页样式 */
+.head { padding: 30rpx 6rpx 6rpx; text-align: center; }
+.head-name {
+  font-size: 44rpx;
+  font-weight: 600;
+  letter-spacing: 6rpx;
+  color: var(--green-deep);
+}
+.head-slogan {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--ink-2);
+  letter-spacing: 8rpx;
+}
+
+/* 轮播 */
+.banner-swiper {
+  height: 300rpx;
+  margin-top: 28rpx;
+}
+.banner {
+  height: 300rpx;
+  border-radius: var(--radius);
+  padding: 40rpx 44rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.banner-green { background: linear-gradient(135deg, #486552 0%, #3B5446 60%, #2F4A3A 100%); }
+.banner-gold { background: linear-gradient(135deg, #B7935C 0%, #A67F49 60%, #8F6F3B 100%); }
+.banner-ink { background: linear-gradient(135deg, #55524A 0%, #44423B 60%, #38362F 100%); }
+.banner-tag {
+  display: inline-block;
+  font-size: 22rpx;
+  letter-spacing: 2rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.55);
+  border-radius: 999rpx;
+  padding: 4rpx 18rpx;
+  opacity: 0.92;
+}
+.banner-title {
+  margin-top: 24rpx;
+  font-size: 44rpx;
+  font-weight: 600;
+  letter-spacing: 6rpx;
+}
+.banner-sub { margin-top: 10rpx; font-size: 24rpx; opacity: 0.82; letter-spacing: 2rpx; }
+.banner-zi {
+  position: absolute;
+  right: 34rpx;
+  bottom: -26rpx;
+  font-size: 180rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.10);
+  line-height: 1;
+}
+
+/* 简介 */
+.intro-card { margin-top: 30rpx; }
+.intro-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  color: var(--green-deep);
+}
+.intro-desc { margin-top: 16rpx; font-size: 26rpx; color: var(--ink-2); text-align: justify; }
+.intro-rows { margin-top: 24rpx; border-top: 1rpx solid var(--line); padding-top: 8rpx; }
+.intro-row { display: flex; padding: 14rpx 0; font-size: 26rpx; }
+.intro-k { width: 90rpx; color: var(--ink-3); letter-spacing: 6rpx; flex-shrink: 0; }
+.intro-v { color: var(--ink-2); flex: 1; }
+.intro-link { color: var(--green); }
+.intro-nav {
+  color: var(--gold);
+  font-size: 24rpx;
+  flex-shrink: 0;
+  margin-left: 12rpx;
+}
+.tech-scroll-avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #F0EDE4;
+}
+
+/* 标题上的"全部" */
+.more { margin-left: auto; font-size: 24rpx; color: var(--ink-3); }
+
+/* 技师横滑 */
+.tech-scroll { white-space: nowrap; }
+.tech-scroll-item {
+  display: inline-block;
+  width: 220rpx;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: var(--radius);
+  padding: 30rpx 20rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.tech-avatar { width: 110rpx; height: 110rpx; border-radius: 50%; margin: 0 auto; }
+.tech-name { margin-top: 18rpx; font-size: 30rpx; font-weight: 600; letter-spacing: 2rpx; }
+.tech-title {
+  margin-top: 6rpx;
+  font-size: 21rpx;
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 项目卡片 */
+.svc-card { display: flex; align-items: center; }
+.svc-zi {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 18rpx;
+  flex-shrink: 0;
+  font-size: 36rpx;
+}
+.svc-info { flex: 1; margin-left: 24rpx; min-width: 0; }
+.svc-name { font-size: 30rpx; font-weight: 600; }
+.svc-desc {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.svc-meta { margin-top: 10rpx; display: flex; align-items: baseline; }
+.svc-dur { margin-left: 18rpx; font-size: 22rpx; color: var(--ink-3); }
+.svc-go {
+  flex-shrink: 0;
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: var(--green);
+  border: 1rpx solid var(--green);
+  border-radius: 999rpx;
+  padding: 8rpx 26rpx;
+}
+
+.foot-note {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 22rpx;
+  letter-spacing: 6rpx;
+  margin-top: 50rpx;
+}

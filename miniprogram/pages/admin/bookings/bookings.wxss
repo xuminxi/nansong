@@ -1,0 +1,54 @@
+/* pages/admin/bookings/bookings.wxss */
+.abk { padding-bottom: 40rpx; }
+
+.ov {
+  display: flex;
+  align-items: center;
+  background: var(--green-deep);
+  border-radius: var(--radius);
+  color: #fff;
+  padding: 30rpx 0;
+  margin-bottom: 26rpx;
+}
+.ov-item { flex: 1; text-align: center; }
+.ov-num { font-size: 44rpx; font-weight: 600; }
+.ov-warn { color: #E8CFA0; }
+.ov-label { font-size: 23rpx; opacity: 0.75; margin-top: 4rpx; }
+.ov-div { width: 1rpx; height: 60rpx; background: rgba(255, 255, 255, 0.18); }
+
+.tab-scroll { white-space: nowrap; padding: 4rpx 0 10rpx; }
+
+.bk-top { display: flex; align-items: center; justify-content: space-between; }
+.bk-svc { font-size: 30rpx; font-weight: 600; }
+.bk-when { margin-top: 10rpx; font-size: 25rpx; color: var(--ink-2); }
+.bk-cust { margin-top: 8rpx; display: flex; align-items: center; }
+.bk-phone { font-size: 25rpx; color: var(--ink-2); }
+.bk-call {
+  margin-left: 16rpx;
+  font-size: 22rpx;
+  color: var(--green);
+  border: 1rpx solid var(--green);
+  border-radius: 999rpx;
+  padding: 2rpx 18rpx;
+}
+.bk-code {
+  margin-left: auto;
+  font-size: 22rpx;
+  color: #96702F;
+  background: #FBF4E6;
+  border-radius: 999rpx;
+  padding: 2rpx 18rpx;
+  letter-spacing: 1rpx;
+}
+.bk-remark {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #8F6F3B;
+  background: var(--gold-soft);
+  border-radius: 10rpx;
+  padding: 10rpx 18rpx;
+}
+.bk-ops { margin-top: 18rpx; display: flex; align-items: center; }
+.bk-ctime { font-size: 22rpx; color: var(--ink-3); }
+
+.abk-pad { height: 160rpx; }
